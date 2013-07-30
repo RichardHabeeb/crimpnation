@@ -27,22 +27,20 @@ echo "
 			</div>
 			
 			<div class='col-12 col-sm-12 col-lg-12'>
-				<div class='col-3 col-sm-3 col-lg-3'></div>
-				<div class='col-6 col-sm-6 col-lg-6'>
+				<div class='col-2 col-sm-2 col-lg-2'></div>
+				<div class='col-8 col-sm-8 col-lg-8'>
 					<button id='crimp_btn' type='button' class='btn btn-success btn-large btn-block'>Start Crimp</button>
+					<div class='timer-display center'>
+						<p class='text-muted'>Elapsed time of this crimp</p>
+						<h1>99:99</h2>
+					</div>
 				</div>
-				<div class='col-3 col-sm-3 col-lg-3'></div>
+				<div class='col-2 col-sm-2 col-lg-2'></div>
 			</div>
-			
-
+			<div class='col-12 col-sm-12 col-lg-12'>
+				<div class='col-1 col-sm-1 col-lg-1'></div>
+				<div class='col-10 col-sm-10 col-lg-10'>
 ";
-
-
-
-print_r($database->get_user_info("Squiggle"));
-print_r($database->get_user_crimps("Squiggle"));
-print_r($database->get_user_day_crimps("Squiggle", "2013-7-29"));
-
 
 
 
