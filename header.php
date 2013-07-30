@@ -1,5 +1,21 @@
 <?php
 
+
+require 'database.php';
+
+
+$database = new Database();
+
+print_r($database->get_user_info("Squiggle"));
+
+
+
+
+
+
+
+
+
 echo "
 
 <!DOCTYPE html>
@@ -12,9 +28,6 @@ echo "
 	</head>
 	<body>
 		<div class='container'>
-			<div class=''>
-			
-			</div>
 
 ";
 
