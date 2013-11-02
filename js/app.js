@@ -1,6 +1,18 @@
 App = Ember.Application.create();
 
 App.Router.map(function() {
-	this.route("crimpingA");
-	this.route("crimpingB");
+});
+
+/*
+App.IndexController = Ember.ObjectController.extend({
+  buttonText: "Start Crimp",
+});
+*/
+
+App.IndexRoute = Ember.Route.extend({
+	model: function() {
+		return [{
+			buttonText: "Finish",
+		}];
+	},
 });

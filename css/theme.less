@@ -26,9 +26,11 @@
   .background-clip(padding-box);
 }
 
+
 .standard-text {
     font-family: 'Droid Sans', sans-serif;
-    font-size:15px;
+    font-size: 14px;
+	@media only screen and (max-width : 768px) { font-size: 8px; }
     color: #eee;
     text-shadow: 1px 1px rgba(0,0,0,0.2);
 }
@@ -38,16 +40,14 @@ body {
     background-color: #36393B;
 }
 
-.container {
-}
 
 h1 {
-	font-size: 50px;
+	font-size: 400%;
 	font-weight: 700;
 }
 
 h2 {
-	font-size: 25px;
+	font-size: 200%;
 	font-weight: 700;
 	color: #aaa;
 }
@@ -59,21 +59,22 @@ h2 {
 .header {
     .drop-shadow(5px, 5px, 10px, 0.3);
     background-color: orange; 
+	overflow: none;
+	padding: 30px;
+	margin-bottom: 30px;
     font-family: 'Geo';
-    color:#696758 ;
-    margin-bottom: 30px;
-    font-size: 40px;
-    overflow: none;
-    padding: 30px;
-	line-height: 50px;
 	white-space: nowrap;
+	line-height: 400%;
 	
     .title {
-        font-size:120px;
-        letter-spacing: -10px;
+        font-size: 1000%;
+		letter-spacing: -0.1em;
         color: #eee;
-		
     }
+	.title-desc {
+		font-size: 300%;
+		color:#696758;
+	}
 }
 
 .form-control {
