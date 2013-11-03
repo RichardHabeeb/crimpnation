@@ -13,22 +13,30 @@
 		</title>
 	</head>
 	<body>
-		<script type="text/x-handlebars">
+		<script type="text/x-handlebars" data-template-name="application">
 			<div class='header'>
-				<span class='title'>CrimpNation</span><br />
+				{{#link-to 'index' class='title'}}CrimpNation{{/link-to}}<br />
 				<span class='title-desc'>QuakeCon Volunteering Statistics</span>
 			</div>
-			<div class='container middle'>				
+			<div class='container middle'>
+				<div class="row">
+					<div class="col-md-6"><h1>{{buttonLabel}}</h1></div>
+					<div class="col-md-3">{{#link-to 'crimping'}}<button id='crimp_btn' type='button' class='btn btn-large btn-default'>{{buttonText}}</button>{{/link-to}}</div>
+				</div>
 				{{outlet}}
 			</div>
 		</script>
 
 		
 		
-		<script type="text/x-handlebars" id="index">
-			<div class='middle'>
-				<h1>Test your skills: {{#link-to 'index'}}<button id='crimp_btn' type='button' class='btn btn-large btn-default'>{{buttonText}}</button>{{/link-to}}</h1>
-				<h2>You must be of<br />stout body, sound mind,<br />with fingers of steel.</h2>
+		<script type="text/x-handlebars" data-template-name="index">
+			<h2>You must be of<br />stout body, sound mind,<br />with fingers of steel.</h2>
+		</script>
+		
+		<script type="text/x-handlebars" data-template-name="crimping">
+			<div class="row clock">
+				<div class="col-md-6"><h1>CRIMP TIME:</h1></div>
+				<div class="col-md-3"><h1 id="clock"></h1></div>
 			</div>
 		</script>
 
