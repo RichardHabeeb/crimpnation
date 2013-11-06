@@ -21,11 +21,27 @@
 				{{#link-to 'index' class='title'}}CrimpNation{{/link-to}}<br />
 				<span class='title-desc'>QuakeCon Volunteering Statistics</span>
 			</div>
-			<div class='container middle'>
-				<div class="row">
-					<div class="col-md-6"><h1>{{buttonLabel}}</h1></div>
-					<div class="col-md-3">{{#link-to 'crimping'}}<button id='crimp_btn' type='button' class='btn btn-large btn-default'>{{buttonText}}</button>{{/link-to}}</div>
-				</div>
+			<div class='container'>
+				{{#view App.StopWatch }}
+					<div class='middle'>	
+						<button id='crimp_btn' type='button' class='btn btn-large btn-default' {{action "btnClicked"}}>{{btn_label}}</button>
+					</div>
+					<div class='stopwatch_container'>
+						<input
+								id='stopwatch_bar'
+								class="infinite" 
+								data-skin="tron"
+								data-thickness=".2"
+								data-bgColor="#eee" 
+								data-fgColor="orange"
+								data-skin="tron"
+								data-displayInput="false"
+								readonly
+								data-cursor=true />
+						<div id='display_time'>0.00 Seconds</div>
+					</div>
+				{{/view}}
+				
 				{{outlet}}
 			</div>
 		</script>
@@ -33,17 +49,7 @@
 		
 		
 		<script type="text/x-handlebars" data-template-name="index">
-			<h2>You must be of<br />stout body, sound mind,<br />with fingers of steel.</h2>
-		</script>
-		
-		<script type="text/x-handlebars" data-template-name="crimping">
-			<div class="row">
-				<div class="flipclock-border">
-					{{#view App.FlipClockView}}
-						<div class='flipclock'></div>
-					{{/view}}
-				</div>
-			</div>
+			<h2>Scores</h2>
 		</script>
 
 		
@@ -53,8 +59,7 @@
 		<script type="text/javascript" src="js/libs/jquery.color.min.js"></script>
 		<script type="text/javascript" src="js/libs/handlebars-1.0.0.js"></script>
 		<script type="text/javascript" src="js/libs/ember-1.0.0.js"></script>
-		<script type="text/javascript" src="js/libs/prefixfree.min.js"></script>
-		<script type="text/javascript" src="js/libs/flipclock.min.js"></script>
+		<script type="text/javascript" src="js/libs/jquery.knob.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 	</body>
 </html>
