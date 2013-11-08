@@ -1,5 +1,9 @@
 App = Ember.Application.create();
 
+App.Router.map(function() {
+	this.resource("scores");
+	this.resource("insertScore");
+});
 
 var timer = Ember.Object.create({
 	crimping: 		false,
@@ -36,10 +40,6 @@ var timer = Ember.Object.create({
 	}
 });
 
-App.Router.map(function() {
-	this.resource("crimping");
-});
-
 App.ApplicationController = Ember.ObjectController.extend({
 	btnLabel: "Test Your Skills",
 	timer: timer,
@@ -48,6 +48,7 @@ App.ApplicationController = Ember.ObjectController.extend({
 	actions: {
 		btnClicked: function() {
 			if(!timer.get('crimping')) {
+				this.transitionToRoute('scores');
 				this.set('btnLabel', "Done");
 				timer.set('elapsed', 0);
 				timer.set('start', new Date().getTime());
@@ -57,13 +58,18 @@ App.ApplicationController = Ember.ObjectController.extend({
 			} else if( timer.get('crimping') && timer.get('elapsed') > 10000) {
 				clearInterval(timer.get('clockId'));
 				timer.set('crimping', false);
-				this.set('btnLabel', "Test Your Skills");
+				this.set('btnLabel', "Try again!");
+				this.transitionToRoute('insertScore').then(function() {
+					console.log($(".score_form").offset().top);
+					$('html,body').animate({
+						scrollTop: $(".score_form").offset().top,
+					}, 1000);
+				});
 			}
 		},
 	},
 });
  
-
 App.StopWatch = Ember.View.extend({
 	type: 'text',
 	tagName: 'div',
@@ -76,3 +82,12 @@ App.StopWatch = Ember.View.extend({
 		});
 	},
 });
+
+
+App.IndexRoute = Ember.Route.extend({
+  beforeModel: function() {
+    this.transitionTo('scores');
+  }
+});
+
+
